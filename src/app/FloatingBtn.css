@@ -1,0 +1,39 @@
+/*Botón flotante Whatsapp-------------------------------------------*/
+
+.floating-button {
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Agrega una transición suave a todos los cambios */
+    z-index: 1000;
+  }
+  
+  .floating-button:hover {
+    transform: scale(1.1);
+    /* Escala el botón al 110% cuando el cursor pasa sobre él */
+  }
+  
+  .floating-button img {
+    max-width: 50px;
+    /* Ajusta el tamaño de la imagen según sea necesario */
+    border-radius: 50px;
+  }
+  
+  /* Agrega la nueva clase para la animación */
+  .bell-animation {
+    animation: bellAnimation 2s infinite alternate;
+  }
+  
+  /* Define la animación */
+  @keyframes bellAnimation {
+    0% {
+      transform: rotate(-10deg);
+    }
+  
+    100% {
+      transform: rotate(10deg);
+    }
+  }
