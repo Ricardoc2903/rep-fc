@@ -52,6 +52,11 @@ export default function App() {
     <div className="flex flex-col h-full items-center mt-10 mb-32">
       <div className=" w-1/2 rounded-lg h-96 flex flex-col items-center">
         <h1 className="font-bold text-primary-400 text-2xl">Contactanos</h1>
+        {formSubmitted && (
+          <div className="mt-3 text-xl text-black dark:text-white font-semibold">
+            ¡El formulario se envió correctamente!
+          </div>
+        )}
         <form id="miFormulario" className="form" method="POST" onSubmit={onSubmit}>
           <div className="flex w-80 flex-col px-2 sm:px-0 flex-wrap md:flex-nowrap gap-10">
             <Input type="name" id="nombre" variant={"underlined"} color="primary" required label="Nombre" />
@@ -71,11 +76,6 @@ export default function App() {
             </Button>
           </div>
         </form>
-        {formSubmitted && (
-          <div className="mt-3 text-green-600 font-semibold">
-            ¡El formulario se envió correctamente!
-          </div>
-        )}
       </div>
     </div>
   );
