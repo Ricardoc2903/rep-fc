@@ -10,12 +10,12 @@ export default function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const nombre = e.target.nombre.value;
-    const number = parseInt(e.target.number.value);
-    const email = e.target.email.value;
-    const msg = e.target.msg.value;
+    const nombre = (e.target as HTMLFormElement).nombre.value;
+    const number = parseInt((e.target as HTMLFormElement).number.value);
+    const email = (e.target as HTMLFormElement).email.value;
+    const msg = (e.target as HTMLFormElement).msg.value;
 
     // Validar la dirección de correo electrónico
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,26 +34,24 @@ export default function App() {
 
     if (res.ok) {
       setFormSubmitted(true);
-      handleReset(); // Llamar a handleReset después de enviar el formulario
+      handleReset(); // Llamar a la función handleReset después de enviar el formulario
     } else {
       console.error("Error al enviar el formulario:", res.statusText);
     }
   };
 
   const handleReset = () => {
-    document.getElementById("miFormulario").reset();
-    setEmailError(false); // Resetear el estado de emailError
+    const form = document.getElementById("miFormulario") as HTMLFormElement;
+    if (form) {
+      form.reset();
+      setEmailError(false); // Resetear el estado de emailError
+    }
   };
 
   return (
     <div className="flex flex-col h-full items-center mt-10 mb-32">
       <div className=" w-1/2 rounded-lg h-96 flex flex-col items-center">
         <h1 className="font-bold text-primary-400 text-2xl">Contactanos</h1>
-        {formSubmitted && (
-          <div className="mt-3 text-xl dark:text-white text-black font-semibold">
-            ¡El formulario se envió correctamente!
-          </div>
-        )}
         <form id="miFormulario" className="form" method="POST" onSubmit={onSubmit}>
           <div className="flex w-80 flex-col px-2 sm:px-0 flex-wrap md:flex-nowrap gap-10">
             <Input type="name" id="nombre" variant={"underlined"} color="primary" required label="Nombre" />
@@ -73,6 +71,11 @@ export default function App() {
             </Button>
           </div>
         </form>
+        {formSubmitted && (
+          <div className="mt-3 text-green-600 font-semibold">
+            ¡El formulario se envió correctamente!
+          </div>
+        )}
       </div>
     </div>
   );
