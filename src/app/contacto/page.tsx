@@ -50,10 +50,10 @@ export default function App() {
 
   return (
     <div className="flex flex-col h-full items-center mt-10 mb-32">
-      <div className=" w-1/2 rounded-lg h-96 flex flex-col items-center">
+      <div className=" w-1/2 rounded-lg h-96 mb-10 sm:mb-0 flex flex-col items-center">
         <h1 className="font-bold text-primary-400 text-2xl">Contactanos</h1>
         {formSubmitted && (
-          <div className="mt-3 text-xs sm:text-xl text-black dark:text-white font-semibold">
+          <div className="mt-3 text-md sm:text-xl text-black dark:text-white font-semibold">
             ¡El formulario se envió correctamente!
           </div>
         )}
