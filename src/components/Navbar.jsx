@@ -5,7 +5,8 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
-import { AcmeLogo } from "./Iconos.jsx";
+import Image from 'next/image'
+import logo from "@/images/logo_.png"
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -18,8 +19,7 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">ACME</p>
+          <Image src={logo} className=" w-52 h-14" alt="logo" />
         </NavbarBrand>
       </NavbarContent>
 
