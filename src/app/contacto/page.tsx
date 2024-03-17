@@ -53,7 +53,7 @@ export default function App() {
       <div className=" w-1/2 rounded-lg h-96 mb-12 sm:mb-0 flex flex-col items-center">
         <h1 className="font-bold text-primary-400 text-2xl">Contactanos</h1>
         {formSubmitted && (
-          <div className="mt-3 text-md sm:text-xl text-black dark:text-white font-semibold">
+          <div className="mt-3 text-md w-72 sm:w-auto sm:text-xl text-black dark:text-white font-semibold">
             ¡El formulario se envió correctamente!
           </div>
         )}
