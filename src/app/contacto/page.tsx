@@ -58,7 +58,7 @@ export default function App() {
           </div>
         )}
         <form id="miFormulario" className="form" method="POST" onSubmit={onSubmit}>
-          <div className="flex w-80 flex-col px-2 mb-16 sm:mb-0 sm:px-0 flex-wrap md:flex-nowrap gap-10">
+          <div className="flex w-80 flex-col px-2 sm:mb-0 sm:px-0 flex-wrap md:flex-nowrap gap-10">
             <Input type="name" id="nombre" variant={"underlined"} color="primary" required label="Nombre" />
             <Input type="number" id="number" variant={"underlined"} color="primary" required label="Teléfono" />
             <Input type="email" id="email" variant={"underlined"} color="primary" required label="Email" />
