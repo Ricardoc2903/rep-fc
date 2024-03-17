@@ -53,12 +53,12 @@ export default function App() {
       <div className=" w-1/2 rounded-lg h-96 flex flex-col items-center">
         <h1 className="font-bold text-primary-400 text-2xl">Contactanos</h1>
         {formSubmitted && (
-          <div className="mt-3 text-xm sm:text-xl text-black dark:text-white font-semibold">
+          <div className="mt-3 text-xs sm:text-xl text-black dark:text-white font-semibold">
             ¡El formulario se envió correctamente!
           </div>
         )}
         <form id="miFormulario" className="form" method="POST" onSubmit={onSubmit}>
-          <div className="flex w-80 flex-col px-2 mb-5 sm:mb-0 sm:px-0 flex-wrap md:flex-nowrap gap-10">
+          <div className="flex w-80 flex-col px-2 mb-16 sm:mb-0 sm:px-0 flex-wrap md:flex-nowrap gap-10">
             <Input type="name" id="nombre" variant={"underlined"} color="primary" required label="Nombre" />
             <Input type="number" id="number" variant={"underlined"} color="primary" required label="Teléfono" />
             <Input type="email" id="email" variant={"underlined"} color="primary" required label="Email" />
