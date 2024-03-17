@@ -9,3 +9,7 @@ export const AcmeLogo = () => (
     />
   </svg>
 );
+
+export const Whatsapp = () => (
+  
+)

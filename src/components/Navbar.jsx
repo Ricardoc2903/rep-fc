@@ -5,7 +5,7 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
-import { AcmeLogo } from "./AcmeLogo.jsx";
+import { AcmeLogo } from "./Iconos.jsx";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
