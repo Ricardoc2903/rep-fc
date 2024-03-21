@@ -2,13 +2,22 @@
 
 import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import { useTheme } from 'next-themes';
+
 
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 import Image from 'next/image'
-import logo from "@/images/logo_.png"
+import logoOscuro from "@/images/logo_oscuro.png"
+import logoClaro from "@/images/logo_claro.png"
 
 export default function App() {
+
+  const { theme } = useTheme();
+
+  // Determinar la ruta de la imagen según el tema
+  const logoSrc = theme === 'dark' ? logoOscuro : logoClaro;
+
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
@@ -19,7 +28,7 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image src={logo} className=" w-52 h-14" alt="logo" />
+          <Image src={logoSrc} width={"208"} height={"56"} alt="logo" />
         </NavbarBrand>
       </NavbarContent>
 
@@ -42,9 +51,9 @@ export default function App() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Link>
             <ThemeSwitcher />
-          </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>

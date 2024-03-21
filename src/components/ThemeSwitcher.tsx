@@ -3,6 +3,10 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Button } from "@nextui-org/react";
+
+import { FaMoon } from "react-icons/fa6";
+import { IoMdSunny } from "react-icons/io";
 
 // export function ThemeSwitcher() {
 //   const [mounted, setMounted] = useState(false)
@@ -37,9 +41,9 @@ export function ThemeSwitcher() {
   return (
     <div>
       {theme === "dark" ? (
-        <button onClick={() => setTheme('light')}>Modo Claro</button>
+        <Button variant="bordered" color="primary" isIconOnly onClick={() => setTheme('light')}><IoMdSunny /></Button>
       ) : (
-        <button onClick={() => setTheme('dark')}>Modo Oscuro</button>
+        <Button variant="bordered" color="primary" isIconOnly onClick={() => setTheme('dark')}><FaMoon /></Button>
       )}
     </div>
   );
