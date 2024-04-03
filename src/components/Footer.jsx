@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="contacto flex flex-col items-center">
             <h1 className=' text-center text-primary-400 text-xl'>Contacto</h1>
             <p>Números: 11 3323 5117 / 11 3323 3322</p>
-            <a className=' text-sm text-wrap sm:text-lg hover:text-primary-400' id="mail" href="mailto: fc.refrigeracion.fc@gmail.com">fc.refrigeracion.fc@gmail.com</a>
+            {/* <a className=' text-sm text-wrap sm:text-lg hover:text-primary-400' id="mail" href="mailto: fc.refrigeracion.fc@gmail.com">fc.refrigeracion.fc@gmail.com</a> */}
           </div>
           <div className="social flex flex-col items-center">
             <h1 className=' text-center text-primary-400 text-xl'>Redes Sociales</h1>

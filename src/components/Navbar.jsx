@@ -28,13 +28,13 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image src={logoSrc} width={"208"} height={"56"} alt="logo" />
+          <Image src={logoSrc} className=" w-52 h-16 sm:h-14" alt="logo" />
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link className=" h" color="foreground" href="/">
             Inicio
           </Link>
         </NavbarItem>
