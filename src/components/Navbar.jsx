@@ -11,6 +11,8 @@ import Image from 'next/image'
 import logoOscuro from "@/images/logo_oscuro.png"
 import logoClaro from "@/images/logo_claro.png"
 
+import { anton } from "@/ui/fonts"
+
 export default function App() {
 
   const { theme } = useTheme();
@@ -32,7 +34,7 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className={`${anton.className} antialiased hidden sm:flex gap-4`} justify="center">
         <NavbarItem>
           <Link className=" h" color="foreground" href="/">
             Inicio
@@ -56,7 +58,7 @@ export default function App() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu className={`${anton.className} antialiased`}>
         <NavbarItem>
           <Link color="foreground" href="/">
             Inicio

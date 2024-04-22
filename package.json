@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^14.1.4",
     "@nextui-org/react": "^2.2.10",
     "@prisma/client": "^5.11.0",
     "framer-motion": "^11.0.14",

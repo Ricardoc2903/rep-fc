@@ -4,6 +4,8 @@ import free from "@/images/0003.png"
 import lavSec from "@/images/0004.png"
 import camFri from "@/images/0005.png"
 
+import {anton} from "@/ui/fonts"
+
 import Card from "@/components/Card"
 import Hero from "@/components/Hero"
 
@@ -14,7 +16,7 @@ export default function HomePage() {
         <Hero />
 
         <div id="servicios"  className="flex flex-col items-center">
-          <h1 className=" mt-5 font-bold text-primary-400 uppercase text-4xl">Servicios</h1>
+          <h1 className={` ${anton.className} antialiased mt-5 font-bold text-primary-400 uppercase text-4xl`}>Servicios</h1>
           <p className=" text-lg text-center w-10/12 m-3">Aquí algunos de los servicios de los que ofrecemos.</p>
         </div>
 
