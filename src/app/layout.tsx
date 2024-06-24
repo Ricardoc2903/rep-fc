@@ -9,8 +9,9 @@ import FloatingBtn from "@/components/FloatingBtn"
 
 
 export const metadata: Metadata = {
-  title: "FC Refrigeracion",
-  description: "Pagina oficial de FC Refrigeracion",
+  title: "FC Refrigeracion - Servicios Técnicos en Refrigeración",
+  description: "Página oficial de FC Refrigeración. Ofrecemos servicios técnicos en refrigeración de alta calidad.",
+  keywords: "refrigeración, servicios técnicos, reparación de refrigeradores, mantenimiento de aire acondicionado",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
