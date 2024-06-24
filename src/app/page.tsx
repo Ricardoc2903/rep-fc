@@ -39,7 +39,7 @@ export default function HomePage() {
           <Card
             imagen={camFri}
             titulo="Cámaras Frigoríficas"
-            mensaje="Brindamos servicios especializados para la reparación y mantenimiento de cámaras frigoríficas. Nuestros técnicos tienen experiencia en resolver problemas como la falta de enfriamiento, fallos en los sensores y problemas con las puertas."
+            mensaje="Brindamos servicios especializados para la reparación y mantenimiento de cámaras frigoríficas. Nuestros técnicos tienen experiencia en resolver problemas como la falta de enfriamiento, fallos en los sensores, problemas con las puertas, etc."
           />
           <Card
             imagen={lavSec}
