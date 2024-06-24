@@ -11,7 +11,6 @@ import FloatingBtn from "@/components/FloatingBtn"
 export const metadata: Metadata = {
   title: "FC Refrigeracion",
   description: "Pagina oficial de FC Refrigeracion",
-  name="google-site-verification" content="XSnsQL_0Jo6aMqmzwELNcpaOOMRHP2AQs4WbBfp0aNg",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
