@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://fcrefrigeracion.com
+
+# Sitemaps
+Sitemap: https://fcrefrigeracion.com/sitemap.xml
