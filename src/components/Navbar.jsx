@@ -11,7 +11,7 @@ import Image from 'next/image'
 import logoOscuro from "@/images/logo_oscuro.png"
 import logoClaro from "@/images/logo_claro.png"
 
-import { anton } from "@/ui/fonts"
+import { anton } from "../ui/fonts"
 
 export default function App() {
 
@@ -36,17 +36,17 @@ export default function App() {
 
       <NavbarContent className={`${anton.className} antialiased hidden sm:flex gap-4`} justify="center">
         <NavbarItem>
-          <Link className=" h" color="foreground" href="/">
+          <Link color="primary" href="/">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/#servicios" color="foreground">
+          <Link href="/#servicios" color="primary">
             Servicios
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/contacto">
+          <Link color="primary" href="/contacto">
             Contacto
           </Link>
         </NavbarItem>

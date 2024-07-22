@@ -8,7 +8,7 @@ export default function FloatingBtn() {
     <div>
       <a href="https://wa.link/7ofobc">
         <div className="floating-button bell-animation">
-          <Image src={whatsapp} />
+          <Image src={whatsapp} alt="logo de whatsapp" />
         </div>
       </a>
     </div>
