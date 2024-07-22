@@ -15,7 +15,7 @@ export default function HomePage() {
       <div>
         <Hero />
 
-        <div id="servicios"  className="flex flex-col items-center">
+        <div id="servicios"  className="flex flex-col justify-center items-center">
           <h1 className={` ${anton.className} antialiased mt-5 font-bold text-primary-400 uppercase text-4xl`}>Servicios</h1>
           <p className=" text-lg text-center w-10/12 m-3">Aquí algunos de los servicios de los que ofrecemos.</p>
         </div>

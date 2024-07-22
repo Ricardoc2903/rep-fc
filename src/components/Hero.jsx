@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { anton } from "@/ui/fonts"
+import { anton } from "../ui/fonts";
 import { Button, Link } from "@nextui-org/react";
 import man from "@/images/mantenimiento1.jpg"
 
@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
         </div>
         <div className=" hero-image w-auto hidden sm:block">
-          <Image width={370} className=' align-middle rounded-xl' src={man} alt="imagen" />
+          <Image width={370} className=' align-middle rounded-xl' src={man} alt="imagen de hero" />
         </div>
       </div>
     </div>
