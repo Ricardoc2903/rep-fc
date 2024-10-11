@@ -29,7 +29,7 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image src={logoSrc} className=" w-52 h-16 sm:w-32 sm:h-14 " alt="logo" />
+          <Image src={logoSrc} className=" w-36 h-10 sm:w-36 sm:h-10" alt="logo" />
         </NavbarBrand>
       </NavbarContent>
 
