@@ -4,7 +4,6 @@ import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
 import { useTheme } from 'next-themes';
 
-
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 import Image from 'next/image'
