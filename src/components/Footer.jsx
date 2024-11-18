@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
         </div>
         <div className=" text-center p-2 bg-primary-400 dark:bg-primary-200 footer-copyright">
-          <p>© 2023 F&amp;C | Todos los derechos reservados / diseñado por Ricardo</p>
+          <p>© 2023 F&amp;C | Todos los derechos reservados </p>
         </div>
       </div>
     </div>
