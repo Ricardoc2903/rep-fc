@@ -40,8 +40,8 @@ export default function App() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/#servicios" color="primary">
-            Servicios
+          <Link href="/calculadora" color="primary">
+            Calculadora
           </Link>
         </NavbarItem>
         <NavbarItem>
