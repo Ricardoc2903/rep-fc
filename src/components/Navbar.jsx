@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} isBordered isBlurred>
-      <NavbarContent>
+      <NavbarContent className="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
@@ -59,17 +59,17 @@ export default function App() {
       </NavbarContent>
       <NavbarMenu className={`${anton.className} antialiased`}>
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link className=" w-full justify-center h-10 text-lg" color="foreground" href="/">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/#servicios">
+          <Link className=" w-full justify-center h-10 text-lg" color="foreground" href="/#servicios">
             Servicios
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/contacto">
+          <Link className=" w-full justify-center h-10 text-lg" color="foreground" href="/contacto">
             Contacto
           </Link>
         </NavbarItem>
