@@ -59,17 +59,17 @@ export default function App() {
       </NavbarContent>
       <NavbarMenu className={`${anton.className} antialiased`}>
         <NavbarItem>
-          <Link className=" w-full justify-center h-10 text-lg" color="foreground" href="/">
+          <Link className=" text-primary-400 w-full justify-center h-10 text-lg" color="foreground" href="/">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className=" w-full justify-center h-10 text-lg" color="foreground" href="/#servicios">
-            Servicios
+          <Link className=" text-primary-400 w-full justify-center h-10 text-lg" color="foreground" href="/calculadora">
+            Calculadora
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className=" w-full justify-center h-10 text-lg" color="foreground" href="/contacto">
+          <Link className=" text-primary-400 w-full justify-center h-10 text-lg" color="foreground" href="/contacto">
             Contacto
           </Link>
         </NavbarItem>
