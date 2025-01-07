@@ -22,7 +22,7 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <Navbar shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} isBordered isBlurred>
+    <Navbar className=" bg-primary-100" shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} isBordered isBlurred>
       <NavbarContent className="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -35,17 +35,17 @@ export default function App() {
 
       <NavbarContent className={`${anton.className} antialiased hidden sm:flex gap-4`} justify="center">
         <NavbarItem>
-          <Link color="primary" href="/">
+          <Link className=" text-primary-400" href="/">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/calculadora" color="primary">
+          <Link className="text-primary-400" href="/calculadora">
             Calculadora
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="primary" href="/contacto">
+          <Link className="text-primary-400" href="/contacto">
             Contacto
           </Link>
         </NavbarItem>

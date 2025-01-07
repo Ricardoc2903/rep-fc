@@ -1,49 +1,75 @@
 "use client";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { Select, SelectItem, Input, Button } from "@nextui-org/react";
 
-export default function CalculadoraFrigorias() {
-  const [resultado, setResultado] = useState("");
+// Tipos de datos
+interface Opcion {
+  key: string;
+  label: string;
+}
 
-  const climas = [
+interface OpcionesCalculo {
+  clima: string;
+  orientacion: string;
+  aislamiento: string;
+  tipoTecho: string;
+  areaVentanas: number;
+  personas: number;
+  equiposElectronicos: number;
+  tipoUso: string;
+}
+
+export default function CalculadoraFrigorias() {
+
+  // Estado para manejar el resultado
+  const [resultado, setResultado] = useState<string>("");
+
+  // Opciones de selección
+  const climas: Opcion[] = [
     { key: "frio", label: "Frío" },
     { key: "templado", label: "Templado" },
     { key: "calido", label: "Cálido" },
     { key: "tropical", label: "Tropical" },
   ];
 
-  const orientaciones = [
+  const orientaciones: Opcion[] = [
     { key: "norte", label: "Norte" },
     { key: "sur", label: "Sur" },
     { key: "este", label: "Este" },
     { key: "oeste", label: "Oeste" },
   ];
 
-  const aislamientos = [
+  const aislamientos: Opcion[] = [
     { key: "excelente", label: "Excelente" },
     { key: "bueno", label: "Bueno" },
     { key: "normal", label: "Normal" },
     { key: "malo", label: "Malo" },
   ];
 
-  const tiposTecho = [
+  const tiposTecho: Opcion[] = [
     { key: "aislado", label: "Aislado" },
     { key: "no aislado", label: "No aislado" },
     { key: "vidriado", label: "Vidriado" },
   ];
 
-  const tiposUso = [
+  const tiposUso: Opcion[] = [
     { key: "vivienda", label: "Vivienda" },
     { key: "oficina", label: "Oficina" },
     { key: "comercial", label: "Comercial" },
   ];
 
-  const calcularFrigorias = (ancho, largo, altura, opciones) => {
+  // Cálculo de frigorías
+  const calcularFrigorias = (
+    ancho: number,
+    largo: number,
+    altura: number,
+    opciones: OpcionesCalculo
+  ): number => {
     const volumen = ancho * largo * altura;
     let frigoriasBase = 20;
     let frigoriasNecesarias = volumen * frigoriasBase;
 
-    const factorClimatico = {
+    const factorClimatico: Record<string, number> = {
       frio: 0.9,
       templado: 1,
       calido: 1.1,
@@ -51,7 +77,7 @@ export default function CalculadoraFrigorias() {
     };
     frigoriasNecesarias *= factorClimatico[opciones.clima] || 1;
 
-    const factorOrientacion = {
+    const factorOrientacion: Record<string, number> = {
       norte: 0.95,
       sur: 1,
       este: 1.05,
@@ -59,7 +85,7 @@ export default function CalculadoraFrigorias() {
     };
     frigoriasNecesarias *= factorOrientacion[opciones.orientacion] || 1;
 
-    const factorAislamiento = {
+    const factorAislamiento: Record<string, number> = {
       excelente: 0.9,
       bueno: 0.95,
       normal: 1,
@@ -67,7 +93,7 @@ export default function CalculadoraFrigorias() {
     };
     frigoriasNecesarias *= factorAislamiento[opciones.aislamiento] || 1;
 
-    const factorTecho = {
+    const factorTecho: Record<string, number> = {
       aislado: 1,
       "no aislado": 1.15,
       vidriado: 1.25,
@@ -78,7 +104,7 @@ export default function CalculadoraFrigorias() {
     frigoriasNecesarias += opciones.personas * 100;
     frigoriasNecesarias += (opciones.equiposElectronicos || 0) * 400;
 
-    const factorUso = {
+    const factorUso: Record<string, number> = {
       vivienda: 1,
       oficina: 1.1,
       comercial: 1.2,
@@ -89,28 +115,30 @@ export default function CalculadoraFrigorias() {
     return Math.round(frigoriasNecesarias / 100) * 100;
   };
 
-  const handleSubmit = (e) => {
+  // Manejo del formulario
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
 
-    const ancho = parseFloat(formData.get("ancho"));
-    const largo = parseFloat(formData.get("largo"));
-    const altura = parseFloat(formData.get("altura"));
+    const ancho = parseFloat(formData.get("ancho") as string);
+    const largo = parseFloat(formData.get("largo") as string);
+    const altura = parseFloat(formData.get("altura") as string);
 
     if (ancho <= 0 || largo <= 0 || altura <= 0) {
       setResultado("Por favor, ingrese dimensiones válidas.");
       return;
     }
 
-    const opciones = {
-      clima: formData.get("clima"),
-      orientacion: formData.get("orientacion"),
-      aislamiento: formData.get("aislamiento"),
-      tipoTecho: formData.get("tipoTecho"),
-      areaVentanas: parseFloat(formData.get("areaVentanas")) || 0,
-      personas: parseInt(formData.get("personas")) || 0,
-      equiposElectronicos: parseInt(formData.get("equiposElectronicos")) || 0,
-      tipoUso: formData.get("tipoUso"),
+    const opciones: OpcionesCalculo = {
+      clima: formData.get("clima") as string,
+      orientacion: formData.get("orientacion") as string,
+      aislamiento: formData.get("aislamiento") as string,
+      tipoTecho: formData.get("tipoTecho") as string,
+      areaVentanas: parseFloat(formData.get("areaVentanas") as string) || 0,
+      personas: parseInt(formData.get("personas") as string) || 0,
+      equiposElectronicos:
+        parseInt(formData.get("equiposElectronicos") as string) || 0,
+      tipoUso: formData.get("tipoUso") as string,
     };
 
     const frigoriasRequeridas = calcularFrigorias(
@@ -125,9 +153,11 @@ export default function CalculadoraFrigorias() {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 mb-10 ">
-      <div className="cal-form p-5">
-        <h1 className="text-xl text-primary-400 font-bold">Calculadora Avanzada de Frigorías</h1>
+    <div className="flex flex-col items-center mt-10 mb-10  ">
+      <div className=" shadow-lg rounded-3xl dark:shadow-primary-800 shadow-primary-400 cal-form p-5">
+        <h1 className="text-xl text-primary-400 font-bold">
+          Calculadora Avanzada de Frigorías
+        </h1>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-3">
             <div className="input-group">
@@ -293,3 +323,130 @@ export default function CalculadoraFrigorias() {
     </div>
   );
 }
+
+
+function setResultado(arg0: string) {
+  throw new Error("Function not implemented.");
+}
+
+
+// const [resultado, setResultado] = useState("");
+
+// const climas = [
+//   { key: "frio", label: "Frío" },
+//   { key: "templado", label: "Templado" },
+//   { key: "calido", label: "Cálido" },
+//   { key: "tropical", label: "Tropical" },
+// ];
+
+// const orientaciones = [
+//   { key: "norte", label: "Norte" },
+//   { key: "sur", label: "Sur" },
+//   { key: "este", label: "Este" },
+//   { key: "oeste", label: "Oeste" },
+// ];
+
+// const aislamientos = [
+//   { key: "excelente", label: "Excelente" },
+//   { key: "bueno", label: "Bueno" },
+//   { key: "normal", label: "Normal" },
+//   { key: "malo", label: "Malo" },
+// ];
+
+// const tiposTecho = [
+//   { key: "aislado", label: "Aislado" },
+//   { key: "no aislado", label: "No aislado" },
+//   { key: "vidriado", label: "Vidriado" },
+// ];
+
+// const tiposUso = [
+//   { key: "vivienda", label: "Vivienda" },
+//   { key: "oficina", label: "Oficina" },
+//   { key: "comercial", label: "Comercial" },
+// ];
+
+// const calcularFrigorias = (ancho, largo, altura, opciones) => {
+//   const volumen = ancho * largo * altura;
+//   let frigoriasBase = 20;
+//   let frigoriasNecesarias = volumen * frigoriasBase;
+
+//   const factorClimatico = {
+//     frio: 0.9,
+//     templado: 1,
+//     calido: 1.1,
+//     tropical: 1.2,
+//   };
+//   frigoriasNecesarias *= factorClimatico[opciones.clima] || 1;
+
+//   const factorOrientacion = {
+//     norte: 0.95,
+//     sur: 1,
+//     este: 1.05,
+//     oeste: 1.1,
+//   };
+//   frigoriasNecesarias *= factorOrientacion[opciones.orientacion] || 1;
+
+//   const factorAislamiento = {
+//     excelente: 0.9,
+//     bueno: 0.95,
+//     normal: 1,
+//     malo: 1.1,
+//   };
+//   frigoriasNecesarias *= factorAislamiento[opciones.aislamiento] || 1;
+
+//   const factorTecho = {
+//     aislado: 1,
+//     "no aislado": 1.15,
+//     vidriado: 1.25,
+//   };
+//   frigoriasNecesarias *= factorTecho[opciones.tipoTecho] || 1;
+
+//   frigoriasNecesarias += (opciones.areaVentanas || 0) * 150;
+//   frigoriasNecesarias += opciones.personas * 100;
+//   frigoriasNecesarias += (opciones.equiposElectronicos || 0) * 400;
+
+//   const factorUso = {
+//     vivienda: 1,
+//     oficina: 1.1,
+//     comercial: 1.2,
+//   };
+//   frigoriasNecesarias *= factorUso[opciones.tipoUso] || 1;
+
+//   frigoriasNecesarias *= 1.1;
+//   return Math.round(frigoriasNecesarias / 100) * 100;
+// };
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   const formData = new FormData(e.target);
+
+//   const ancho = parseFloat(formData.get("ancho"));
+//   const largo = parseFloat(formData.get("largo"));
+//   const altura = parseFloat(formData.get("altura"));
+
+//   if (ancho <= 0 || largo <= 0 || altura <= 0) {
+//     setResultado("Por favor, ingrese dimensiones válidas.");
+//     return;
+//   }
+
+//   const opciones = {
+//     clima: formData.get("clima"),
+//     orientacion: formData.get("orientacion"),
+//     aislamiento: formData.get("aislamiento"),
+//     tipoTecho: formData.get("tipoTecho"),
+//     areaVentanas: parseFloat(formData.get("areaVentanas")) || 0,
+//     personas: parseInt(formData.get("personas")) || 0,
+//     equiposElectronicos: parseInt(formData.get("equiposElectronicos")) || 0,
+//     tipoUso: formData.get("tipoUso"),
+//   };
+
+//   const frigoriasRequeridas = calcularFrigorias(
+//     ancho,
+//     largo,
+//     altura,
+//     opciones
+//   );
+//   setResultado(
+//     `Se necesitan aproximadamente ${frigoriasRequeridas} frigorías.`
+//   );
+// };
