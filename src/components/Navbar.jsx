@@ -56,7 +56,7 @@ export default function App() {
         <NavbarBrand>
           <Image
             src={logoSrc}
-            className=" max-w-[130%] h-10 sm:w-36 sm:h-10 "
+            className=" max-w-[160%] h-11 sm:w-36 sm:h-10 "
             alt="logo"
           />
         </NavbarBrand>
@@ -122,7 +122,7 @@ export default function App() {
             className={`text-primary-400 w-full justify-center h-10 text-lg
               ${
                 pathname === Links.home
-                  ? " bg-sky-100 rounded-lg text-primary-300"
+                  ? " bg-sky-100 dark:bg-foreground-100 rounded-lg text-primary-300"
                   : ""
               }
             `}
@@ -137,7 +137,7 @@ export default function App() {
             className={`text-primary-400 w-full justify-center h-10 text-lg
               ${
                 pathname === Links.calculadora
-                  ? " bg-sky-100 rounded-lg text-primary-300"
+                  ? " bg-sky-100 dark:bg-foreground-100 rounded-lg text-primary-300"
                   : ""
               }
             `}
@@ -152,7 +152,7 @@ export default function App() {
             className={`text-primary-400 w-full justify-center h-10 text-lg
               ${
                 pathname === Links.contacto
-                  ? " bg-sky-100 rounded-lg text-primary-300"
+                  ? " bg-sky-100 dark:bg-foreground-100 rounded-lg text-primary-300"
                   : ""
               }
             `}
