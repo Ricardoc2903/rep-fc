@@ -153,7 +153,7 @@ export default function CalculadoraFrigorias() {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 mb-10  ">
+    <div className=" m-10 sm:mt-10 sm:mb-10  flex flex-col items-center ">
       <div className=" shadow-lg rounded-3xl dark:shadow-primary-800 shadow-primary-400 cal-form p-5">
         <h1 className="text-xl text-primary-400 font-bold">
           Calculadora Avanzada de Frigorías
