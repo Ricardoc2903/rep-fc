@@ -18,6 +18,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5047977628308352"
+         crossorigin="anonymous">
+        </script>
+      </head>
       <body>
         <Providers>
           <div>
