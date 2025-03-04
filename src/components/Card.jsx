@@ -11,11 +11,6 @@ export default function App({ imagen, titulo, mensaje }) {
           <p>{mensaje}</p>
         </div>
       </div>
-      <AdBanner
-        dataAdFormat="auto"
-        dataFullWidthResponsive={true}
-        dataAdSlot="4326240930"
-      />
     </div>
   );
 }
